@@ -86,4 +86,11 @@ if __name__ == "__main__":
 
     # run
     # seed_everything(1024)
-    run(SDK, audio_path, source_path, output_path)
+    more_kwargs = {
+        "setup_kwargs": {
+            "overall_ctrl_info": {
+                "vad_alpha": 0.6  # 控制嘴部张开幅度，范围0-1，值越小嘴张得越小
+            }
+        }
+    }
+    run(SDK, audio_path, source_path, output_path, more_kwargs)
